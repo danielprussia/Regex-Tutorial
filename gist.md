@@ -56,20 +56,47 @@ $: This symbol matches the end of the string. It ensures that the regular expres
 So, the regular expression as a whole matches any string that follows the general format of an email address.
 
 ### Anchors
+ The anchors in this regular expression are the ^ and $ symbols.
+
+The ^ symbol is called the "caret" and it matches the start of the string. It ensures that the regular expression will only match if the pattern begins at the start of the string. In this case, the ^ symbol is used at the beginning of the regular expression to ensure that the email address matches from the very beginning of the string.
+
+The $ symbol is called the "dollar" and it matches the end of the string. It ensures that the regular expression will only match if the pattern ends at the end of the string. In this case, the $ symbol is used at the end of the regular expression to ensure that the email address matches all the way to the end of the string.
+
+So, the combination of the ^ and $ symbols anchors the regular expression to match only strings that fully match the pattern of an email address from beginning to end. Without these anchors, the regular expression could match substrings of a larger string that happen to contain the pattern of an email address.
 
 ### Quantifiers
+There are two quantifiers used in this regular expression:
 
-### OR Operator
++: This quantifier matches one or more occurrences of the preceding element. In this case, it is used to match one or more characters from the character classes [A-Za-z0-9._%+-] and [A-Za-z0-9.-].
+
+{2,}: This quantifier matches two or more occurrences of the preceding element. In this case, it is used to match two or more characters from the character class [A-Za-z].
+
+Together, these quantifiers allow the regular expression to match a range of different email addresses with varying lengths of local and domain parts. The + quantifier ensures that the local and domain parts of the email address each contain at least one character, while the {2,} quantifier ensures that the top-level domain contains at least two characters.
 
 ### Character Classes
+There are three character classes used in this regular expression:
 
-### Flags
+[A-Za-z0-9._%+-]: this class matches any letter uppercase or lowercase, digit, or one of the following special characters: . (period), _ (underscore), %, +, and -. These characters are commonly used in email addresses.
+
+[A-Za-z0-9.-]: This character class matches any letter uppercase or lowercase, digit, or the period and dash symbol: ".  -" 
+[A-Za-z]: This character class matches any letter uppercase or lowercase. It is used to match the top-level domain, which is always composed of one or more letters.
 
 ### Grouping and Capturing
+Capturing groups are created by enclosing part of the regular expression in parentheses (). The contents of the capturing group can be retrieved later using a backreference or as part of the match object. This expression does not have parenteses.
 
 ### Bracket Expressions
+there are three bracket expressions:
+
+[A-Za-z0-9._%+-]: This bracket expression matches any letter (uppercase or lowercase), digit, or one of the following special characters: . (period), _ (underscore), %, +, and -.
+
+[A-Za-z0-9.-]: This bracket expression matches any letter (uppercase or lowercase), digit, or one of the following special characters: . (period) and - (hyphen).
+
+[A-Za-z]: This bracket expression matches any letter (uppercase or lowercase).
 
 ### Greedy and Lazy Match
+ All quantifiers used are greedy by default. A greedy quantifier will try to match as much of the input string as possible, while still allowing the overall regular expression to match.
+
+For example, in the regular expression ^([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+)\.[A-Za-z]{2,}$, the + quantifiers used in both capturing groups are greedy. This means that they will match as many characters as possible that fit the character class, subject to the overall requirement that the entire regular expression must still match the input string.
 
 ### Boundaries
 
