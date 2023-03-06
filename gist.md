@@ -27,15 +27,12 @@ So, this regular expression would match strings like john.doe@example.com, jane.
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
 - [Character Classes](#character-classes)
-- [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
 - [Boundaries](#boundaries)
 - [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
 
@@ -76,22 +73,27 @@ Together, these quantifiers allow the regular expression to match a range of dif
 ### Character Classes
 There are three character classes used in this regular expression:
 
-[A-Za-z0-9._%+-]: this class matches any letter uppercase or lowercase, digit, or one of the following special characters: . (period), _ (underscore), %, +, and -. These characters are commonly used in email addresses.
+[A-Za-z0-9._%+-]: this class matches any letter uppercase or lowercase, digit, or one of the following special characters: ".  _  % +  - "These characters are commonly used in email addresses.
 
 [A-Za-z0-9.-]: This character class matches any letter uppercase or lowercase, digit, or the period and dash symbol: ".  -" 
 [A-Za-z]: This character class matches any letter uppercase or lowercase. It is used to match the top-level domain, which is always composed of one or more letters.
 
 ### Grouping and Capturing
-Capturing groups are created by enclosing part of the regular expression in parentheses (). The contents of the capturing group can be retrieved later using a backreference or as part of the match object. This expression does not have parenteses.
+The first grouping [A-Za-z0-9._%+-]+ matches one or more characters that are either letters uppercase or lowercase, digits, or the special characters . _ % + or - This group matches the local part of the email address before the "@" symbol.
+
+The second grouping [A-Za-z0-9.-]+ matches one or more characters that are either letters uppercase or lowercase, digits, or the special characters . or - This group matches the domain name of the email address and captures it in a capturing group.
+
+The third grouping [A-Za-z]{2,} matches two or more characters that are either uppercase or lowercase letters. This group matches the top-level domain (TLD) of the email address, such as "com", "net", or "org".
+By using a capturing group, the domain name of the email address can be extracted from the match result for further processing or analysis.
 
 ### Bracket Expressions
 there are three bracket expressions:
 
-[A-Za-z0-9._%+-]: This bracket expression matches any letter (uppercase or lowercase), digit, or one of the following special characters: . (period), _ (underscore), %, +, and -.
+[A-Za-z0-9._%+-]: This bracket expression matches any letter uppercase or lowercase, digit, or one of the following special characters: .  _  % +  -
 
-[A-Za-z0-9.-]: This bracket expression matches any letter (uppercase or lowercase), digit, or one of the following special characters: . (period) and - (hyphen).
+[A-Za-z0-9.-]: This bracket expression matches any letter uppercase or lowercase, digit, or one of the following special characters: . and - 
 
-[A-Za-z]: This bracket expression matches any letter (uppercase or lowercase).
+[A-Za-z]: This bracket expression matches any letter uppercase or lowercase.
 
 ### Greedy and Lazy Match
  All quantifiers used are greedy by default. A greedy quantifier will try to match as much of the input string as possible, while still allowing the overall regular expression to match.
@@ -99,11 +101,13 @@ there are three bracket expressions:
 For example, in the regular expression ^([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+)\.[A-Za-z]{2,}$, the + quantifiers used in both capturing groups are greedy. This means that they will match as many characters as possible that fit the character class, subject to the overall requirement that the entire regular expression must still match the input string.
 
 ### Boundaries
+ the ^ and $ symbols are also known as boundary markers, which indicate the start and end of the input string.
+ The ^ symbol matches the beginning of the input string, and the $ symbol matches the end of the input string,
+ Together, these boundary markers ensure that the regular expression matches the entire input string, rather than just a part of it.
 
-### Back-references
-
-### Look-ahead and Look-behind
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Good evening ladies and gentlemen my name is Daniel Prussia and i am the creator of this Email regex tutorial, i hope this has brought you much enlightenment in the world of tommorow.
+Github: github.com/Billthebaker
+Portfolio: https://billthebaker.github.io/Portfolio/
