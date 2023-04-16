@@ -1,4 +1,4 @@
-# Title (replace with your title)
+# REGEX Tutorial
 WELCOME!! This is a Regex Tutorial on the specific regular expression ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
 This is a basic regex for setting up Email validation and restrictions
 Thank you for Choosing this regex tutorial and i hope it helps!
