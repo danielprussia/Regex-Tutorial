@@ -109,5 +109,5 @@ For example, in the regular expression ^([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+)\.[A
 ## Author
 
 Good evening ladies and gentlemen my name is Daniel Prussia and i am the creator of this Email regex tutorial, i hope this has brought you much enlightenment in the world of tommorow.
-Github: github.com/Billthebaker
-Portfolio: https://billthebaker.github.io/Portfolio/
+Github: github.com/danielprussia
+Portfolio: https://danielprussia.github.io/Portfolio
